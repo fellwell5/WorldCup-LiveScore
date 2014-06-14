@@ -1,0 +1,9 @@
+body {background: rgb(249, 200, 18); height: 100%;}
+.container .home{position: relative; right: 6%; }
+.container .away{position: relative; left: 6%; bottom: 36px;}
+.container h2{font-family: 'Source Sans Pro', sans-serif; font-size: 75px; color: rgb(45, 98, 22);}
+.container h2{font-family: 'Source Sans Pro', sans-serif; font-size: 30px; color: rgb(45, 98, 22);}
+
+.footer {border-top: 3px solid #fff; border-bottom: 3px solid #fff; width: 100%; margin-bottom: 5px;}
+.footer li{display: inline;}
+.footer a{color: #fff; text-transform: uppercase;} 

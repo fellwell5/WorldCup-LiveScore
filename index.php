@@ -8,6 +8,7 @@ if($apikey == "YOUR API-KEY HERE!"){
 <head>
 <link href="main.css" rel="stylesheet">
 <link href="bootstrap.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
 <title>World Cup 2014 - Brasil</title>
 </head>
 <body>
@@ -17,7 +18,7 @@ if($apikey == "YOUR API-KEY HERE!"){
 #teams?sort=id&fields=name,logo,website,id
 $matchurl = "http://worldcup.kimonolabs.com/api/matches?apikey=".$apikey."&sort=currentGameMinute&fields=homeScore,awayScore,currentGameMinute,awayTeamId,homeTeamId";
 $timejson = "match.json";
-copy($matchurl, $timejson);
+#copy($matchurl, $timejson);
 $string = file_get_contents($timejson);
 $json = json_decode($string,true);
 $cmatch = count($json);
@@ -61,7 +62,23 @@ if($id == $awayid){
 <table height="100%" width="100%">
 <tr><td align="center" valign="middle">
     <div class="container">
-    
+        <?php
+if($time = ""){
+    echo "<h2>No Match found.</h2><p>Sorry.</p>";
+}else{
+        ?>
+    <h2><a href="<?php echo $hweb; ?>"><img src="<?php echo $hlogo; ?>" height="75" width="75"></a> <?php echo $home; ?> : <?php echo $away; ?> <a href="<?php echo $aweb; ?>" ><img src="<?php echo $alogo; ?>" height="75" width="75"></a></h2>
+        <p class="home"><?php echo $hname; ?></p> <p class="away"><?php echo $aname; ?></p>
+        <?php } ?>
     </div>
 </td></tr>
 </table>
+    <!-- START REMOVE FOOTER -->
+<div class="footer">
+    <ul class="pull-left">
+    <li><a href="http://kimonolabs.com">API from kimonolabs.com</a></li>
+    <li><a href="http://github.com/fellwell5">find this project on github</a></li>
+    <li><a href="http://twitter.com/fellwell5">follow me on twitter</a></li>
+    </ul>
+</div>
+    <!-- STOP REMOVING FOOTER -->
