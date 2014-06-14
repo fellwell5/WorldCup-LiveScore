@@ -18,8 +18,7 @@ if($apikey == "YOUR API-KEY HERE!"){
 #teams?sort=id&fields=name,logo,website,id
 $matchurl = "http://worldcup.kimonolabs.com/api/matches?apikey=".$apikey."&sort=currentGameMinute&fields=homeScore,awayScore,currentGameMinute,awayTeamId,homeTeamId";
 $timejson = "match.json";
-###
-#copy($matchurl, $timejson);
+copy($matchurl, $timejson);
 $string = file_get_contents($timejson);
 $json = json_decode($string,true);
 $cmatch = count($json);
@@ -64,6 +63,7 @@ if($id == $awayid){
 <tr><td align="center" valign="middle">
     <div class="container">
         <?php
+@$gtime = $gtime;
 if($gtime == ""){
     echo "<h2>No Match found.</h2><p class='error'>Sorry.</p>";
 }else{
